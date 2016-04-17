@@ -1,0 +1,4 @@
+﻿  Testing.cpp
+c:\users\taranjyot\documents\visual studio 2015\projects\testing\testing\testing.cpp(188): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\taranjyot\documents\visual studio 2015\projects\testing\testing\testing.cpp(76): warning C4715: 'calPath': not all control paths return a value
+  Testing.vcxproj -> C:\Users\Taranjyot\documents\visual studio 2015\Projects\Testing\Debug\Testing.exe
