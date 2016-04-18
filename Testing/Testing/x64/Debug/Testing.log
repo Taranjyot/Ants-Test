@@ -1,0 +1,3 @@
+﻿  Testing.cpp
+c:\users\taranjyot\documents\visual studio 2015\projects\testing\testing\testing.cpp(357): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Testing.vcxproj -> C:\Users\Taranjyot\documents\visual studio 2015\Projects\Testing\x64\Debug\Testing.exe
