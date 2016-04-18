@@ -1,6 +1,5 @@
 
-#include "stdafx.h"
-#include <iostream>
+#include "stdafx.h"#include <iostream>
 
 using namespace std;
 
@@ -11,6 +10,7 @@ float phermone[10];
 void initTestCases();
 void setTestCases();
 void selecTestCase();
+void selecTestCase1();
 void updatePheromone();
 int lagestPheromone();
 void retRedusedCases(int);
@@ -19,6 +19,8 @@ void printRTestCases();
 void printRJTestCases();
 void calRJTestCases();
 void calPath();
+void calPath1();
+
 void printFaults();
 int main()
 {
@@ -35,6 +37,30 @@ int main()
 	printRJTestCases();
 	//Display faults
 	printFaults();
+	
+	//Lowest of 3 num
+	initTestCases();
+	setTestCases();
+	//test Case selection 
+	selecTestCase1();
+	
+	//Display Pheromone Trail
+	dispOutput();
+	//Displaying reduced test cases
+	printRTestCases();
+	//Displaying Rejected test cases 
+	calRJTestCases();
+	printRJTestCases();
+	//Display faults
+	printFaults();
+	
+	
+	
+	
+	
+	
+	
+	
 	cin.get();
 	return 0;
 }
@@ -48,7 +74,7 @@ void printFaults() {
 	}
 }
 
-//Calculating path 
+//Calculating path Largest of three no's
 int calPath(int a, int b, int c) {
 	
 	if (b > c) {
@@ -74,6 +100,35 @@ int calPath(int a, int b, int c) {
 			}
 	}
 }
+
+//Calculating path Smallest of three no's
+int calPath1(int a, int b, int c) {
+	
+	if (b < c) {
+		faults[0]++;
+		if (a > b) {
+			faults[1]++;
+			return 1;
+		}else 
+			if (a > c) {
+				faults[2]++;
+				return 1;
+			}
+	}
+	else {
+		faults[3]++;
+		if (a > b) {
+			faults[4]++;
+			return 2;
+		}else
+			if (a < c){
+				faults[5]++;
+				return 0;
+			}
+	}
+}
+
+
 
 void calRJTestCases() {
 	int flagsize = 0;
@@ -122,6 +177,32 @@ void dispOutput() {
 		}
 	}
 }
+
+
+
+void selecTestCase1() {
+	int a, b, c, count = 0;
+	for (int i = 0; i < n; i++) {
+		a = test[i][0];
+		b = test[i][1];
+		c = test[i][2];
+		//Execute the program
+
+		path[i] = calPath1(a,b,c);
+		phermone[a] ++;
+		phermone[b] ++;
+		phermone[c] ++;
+
+		//Pheromone updation
+		updatePheromone();
+	}
+	//largest Pheromone 
+	pos = lagestPheromone();
+	cout << "largest pheromone at input:" << pos << endl;
+	retRedusedCases(pos);
+}
+
+
 void selecTestCase() {
 	int a, b, c, count = 0;
 	for (int i = 0; i < n; i++) {
@@ -192,6 +273,7 @@ void updatePheromone() {
 
 void initTestCases() {
 	for (int i = 0; i < n; i++) {
+	    path[i]=0;
 		for (int j = 0; j<3; j++) {
 			test[i][j] = 0;
 			red[i][j] = -1;
@@ -246,6 +328,7 @@ void setTestCases() {
 	*/
 
 }
+
 
 
 
