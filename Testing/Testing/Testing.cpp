@@ -295,7 +295,7 @@ void retRedusedCases(int pos,int check) {
 		int flagsize = 0;
 		for (int i = 0; i<n; i++) {
 			if (test[i][0] == pos || test[i][1] == pos || test[i][2] == pos) {
-				if (path[i] == 1 ||path[i] == 2 ) {
+				if (path[i] == 1) {
 					int flag3 = 0;
 					for (int k = 0; k < red_no; k++) {
 						if (test[i][0] == red[k][0] && test[i][1] == red[k][1] && test[i][2] == red[k][2])
